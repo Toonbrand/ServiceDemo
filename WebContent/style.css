@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+h3 { color: red}
+h1 {color: blue}
+
+table{
+	align: ;
+		border: 2px solid;
+	border-color: blue;
+	font-size: 50px;
+	
+}
+
+th{
+	border: 1px solid;
+	border-color: brown;
+	color: black;
+}
+
+td
+{
+	border: 1px solid;
+	border-color: red;
+	color: yellow;
+}
+
+body { 
+	background-color: cyan;
+	font-size: 25px;
+	font-style: oblique;
+	color: red;
+	cursor:url(l-gcat01.ani),url(38036.gif),auto;
+	}
+	
+a:hover{
+	cursor:url(l-gcat10.ani),url(38045.gif),auto;
+}
+
+text:hover{
+	cursor:url(l-gcat10.ani),url(38045.gif),auto
+}
