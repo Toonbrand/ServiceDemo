@@ -36,6 +36,19 @@ a:hover{
 	cursor:url(l-gcat10.ani),url(38045.gif),auto;
 }
 
-text:hover{
-	cursor:url(l-gcat10.ani),url(38045.gif),auto
+
+.button {
+    background-color: #ff00ff;
+    border: none;
+    color: black;
+    
+    font-size: 30px;
+    text-align: center;
+    font-style: oblique;
+    cursor:url(l-gcat10.ani),url(38045.gif),auto;
+}
+
+
+input-field:hover{
+	cursor:url(l-gcat05.ani),url(38040.gif),auto
 }
