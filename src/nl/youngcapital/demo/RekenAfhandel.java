@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/d")
 public class RekenAfhandel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RekenAfhandel() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RekenAfhandel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,20 +29,25 @@ public class RekenAfhandel extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("<html><head><title>hallo</title></head><link rel=stylesheet href=style.css><body>");
 		response.getWriter().append("<h1>Reken pagina</h1>");
-		
-		int value1 = Integer.parseInt(request.getParameter("val1"));
-		int value2 = Integer.parseInt(request.getParameter("val2"));
-		String choice = request.getParameter("choice");
-		
-		
-		response.getWriter().append("<br>De uitkomst is: ");
-		if(choice.equals("minus")){
-			response.getWriter().append("<h3>" + (value1 - value2) + "</h3>");
+		try{
+			Double value1 = Double.parseDouble(request.getParameter("val1"));
+			Double value2 = Double.parseDouble(request.getParameter("val2"));
+			String choice = request.getParameter("choice");
+
+			response.getWriter().append("<br>De uitkomst is: ");
+			if(choice.equals("minus")){
+				response.getWriter().append("<h3>" + (value1 - value2) + "</h3>");
+			}
+			else if(choice.equals("plus")){
+				response.getWriter().append("<h3>" + (value1 + value2) + "</h3>");
+			}
 		}
-		else if(choice.equals("plus")){
-			response.getWriter().append("<h3>" + (value1 + value2) + "</h3>");
+		catch(NumberFormatException nfe){
+			response.getWriter().append("<h3>Voer alleen getallen in</h3>");
 		}
-		
+
+
+
 		response.getWriter().append("</body></html>");
 	}
 
