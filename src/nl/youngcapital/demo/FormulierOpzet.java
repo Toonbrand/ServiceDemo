@@ -41,11 +41,13 @@ public class FormulierOpzet extends HttpServlet {
 		case "theme1" : response.getWriter().append("<link rel=stylesheet href=style.css><body>");
 		break;
 		case "theme2" : response.getWriter().append("<link rel=stylesheet href=style2.css><body>");
+		break;
+		case "theme3" : response.getWriter().append("<link rel=stylesheet href=style3.css><body>");
 		}
 
 		
 
-		response.getWriter().append("<form method=get ><label for=theme>Theme:</label><select name=theme><option value=theme1>Theme1</option><option value=theme2>Theme2</option></select><br><input type=submit class=button value=set theme></form>");
+		response.getWriter().append("<form method=get ><label for=theme>Theme:</label><select name=theme><option value=theme1>Theme1</option><option value=theme2>Theme2</option><option value=theme3>Patrick</option></select><br><input type=submit class=button value=set theme></form>");
 
 		response.getWriter().append("<form method=get action=b><label for=user>Username:</label><input type=text name=user><br><label for=pwd>Password:</label><input type=password name=pwd><br><input type=submit class=button value=submit></form>");
 		response.getWriter().append("<form method=get action=asdf><label for=status>Status code:<br></label><input type=radio name=status value=200>200<br><input type=radio name=status value=400>400<br><input type=radio name=status value=404>404<br><input type=radio name=status value=418>418<br><input type=radio name=status value=500>500<br><input type=submit class=button value=check></form>");

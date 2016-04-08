@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
-h3 { color: #0000ff}
-h1 {color: #ff0000}
+body:h3 { color: #ff0080}
+h1 {color: #800040}
 
 table{
 	align: ;
@@ -25,10 +25,10 @@ td
 }
 
 body { 
-	background-color: yellow;
+	background-color: #ffff00;
 	font-size: 25px;
+	color: blue;
 	font-style: oblique;
-	color: red;
 	cursor:url(l-gcat01.ani),url(38036.gif),auto;
 	}
 	
