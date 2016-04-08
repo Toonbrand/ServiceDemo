@@ -1,0 +1,52 @@
+@CHARSET "ISO-8859-1";
+
+h3 { color: #0000ff}
+h1 {color: #ff0000}
+
+table{
+	align: ;
+		border: 2px solid;
+	border-color: blue;
+	font-size: 50px;
+	
+}
+
+th{
+	border: 1px solid;
+	border-color: brown;
+	color: black;
+}
+
+td
+{
+	border: 1px solid;
+	border-color: red;
+	color: yellow;
+}
+
+body { 
+	background-color: yellow;
+	font-size: 25px;
+	font-style: oblique;
+	color: red;
+	cursor:url(l-gcat01.ani),url(38036.gif),auto;
+	}
+	
+a:hover{
+	cursor:url(l-gcat10.ani),url(38045.gif),auto;
+}
+
+
+.button {
+    background-color: #008040;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    font-style: oblique;
+    cursor:url(l-gcat10.ani),url(38045.gif),auto;
+}
+
+
+input-field:hover{
+	cursor:url(l-gcat05.ani),url(38040.gif),auto
+}
