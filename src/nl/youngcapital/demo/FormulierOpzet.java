@@ -3,6 +3,7 @@ package nl.youngcapital.demo;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +34,8 @@ public class FormulierOpzet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("<html><head><title>hallo</title></head>");
 
+		Cookie[] cookies = request.getCookies();
+
 		if(request.getParameter("theme") != null){
 			theme = request.getParameter("theme");
 		}
@@ -45,14 +48,25 @@ public class FormulierOpzet extends HttpServlet {
 		case "theme3" : response.getWriter().append("<link rel=stylesheet href=style3.css><body>");
 		}
 
-		
 
-		response.getWriter().append("<form method=get ><label for=theme>Theme:</label><select name=theme><option value=theme1>Theme1</option><option value=theme2>Theme2</option><option value=theme3>Patrick</option></select><br><input type=submit class=button value=set theme></form>");
+		if(cookies != null){
+			for(int i = 0; i<cookies.length; i++){
+				Cookie cookie = cookies[i];
+				if(cookie.getName() == "chosentheme"){
+					theme = cookie.getValue();
+				}
+			}
+		}
+
+		else{
+			response.getWriter().append("<form method=get ><label for=theme>Theme:</label><select name=theme><option value=theme1>Theme1</option><option value=theme2>Theme2</option><option value=theme3>Patrick</option></select><br><input type=submit class=button value=set theme></form>");
+		}
 
 		response.getWriter().append("<form method=get action=b><label for=user>Username:</label><input type=text name=user><br><label for=pwd>Password:</label><input type=password name=pwd><br><input type=submit class=button value=submit></form>");
 		response.getWriter().append("<form method=get action=asdf><label for=status>Status code:<br></label><input type=radio name=status value=200>200<br><input type=radio name=status value=400>400<br><input type=radio name=status value=404>404<br><input type=radio name=status value=418>418<br><input type=radio name=status value=500>500<br><input type=submit class=button value=check></form>");
 		response.getWriter().append("<form method=get action=d><label for=val1>Value1:</label><input type=text name=val1><br><select name=choice><option value=minus>Minus</option><option value=plus>Plus</option></select></br><label for=val2>Value2:</label><input type=text name=val2><br><input type=submit class=button value=calculate></form>");
 		response.getWriter().append("</body></html>");
+
 	}
 
 	/**
@@ -62,5 +76,4 @@ public class FormulierOpzet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
