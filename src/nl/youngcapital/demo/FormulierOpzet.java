@@ -34,12 +34,17 @@ public class FormulierOpzet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("<html><head><title>hallo</title></head>");
 
-		Cookie[] cookies = request.getCookies();
+		Cookie whichTheme = new Cookie("which_theme", request.getParameter("theme"));
+		whichTheme.setMaxAge(60*60*24);
+		response.addCookie(whichTheme);
 
+		//haal thema op
 		if(request.getParameter("theme") != null){
 			theme = request.getParameter("theme");
 		}
 
+		System.out.println(theme);
+		//selecteer thema
 		switch(theme){
 		case "theme1" : response.getWriter().append("<link rel=stylesheet href=style.css><body>");
 		break;
@@ -48,17 +53,13 @@ public class FormulierOpzet extends HttpServlet {
 		case "theme3" : response.getWriter().append("<link rel=stylesheet href=style3.css><body>");
 		}
 
+		//lees cookie
+		theme = whichTheme.getValue();
+		System.out.println("Cookie value:" + whichTheme.getValue());
 
-		if(cookies != null){
-			for(int i = 0; i<cookies.length; i++){
-				Cookie cookie = cookies[i];
-				if(cookie.getName() == "chosentheme"){
-					theme = cookie.getValue();
-				}
-			}
-		}
+		//laat formulier zien
 
-		else{
+		if(whichTheme.getValue() == null){
 			response.getWriter().append("<form method=get ><label for=theme>Theme:</label><select name=theme><option value=theme1>Theme1</option><option value=theme2>Theme2</option><option value=theme3>Patrick</option></select><br><input type=submit class=button value=set theme></form>");
 		}
 
